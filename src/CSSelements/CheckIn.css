@@ -1,0 +1,20 @@
+.tab-content{
+    height: 100%;
+    width: 50%;
+    margin: auto;
+    font-size: 1.5vw; 
+  }
+  .form--main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: #FFFFFF;
+  }
+  .button-submit{
+    margin-top: 1rem;
+    font-size: 1.5vw;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+  }

@@ -1,0 +1,48 @@
+.newGuys--container{
+    padding: 0px;
+    margin: 0px;
+    width: 40%;
+    height: 29rem;
+    overflow: scroll;
+    border-left: 2px black solid;
+    padding: 0.5rem;
+}
+.newGuys--title{
+    border-bottom: 1px black dashed;
+}
+.newGuy--element{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    margin: 0px 0px 1rem 0px;
+    border: 2px black dashed;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.newGuy--info{
+    padding: 0px;
+    margin: 0px;
+}
+.newGuy--text{
+    padding: 0px;
+    margin: 0px;
+}
+
+.newGuy--submission{
+    margin: 0px 0px 0px auto;
+    padding: 0px;
+}
+.newGuy--btn{
+    margin: 0px 0px 0px auto;
+    width: 30%;
+    background: white;
+    color: black;
+    cursor: pointer;
+    border: 1px black solid;
+}
+.newGuy--btn:hover{
+    background: black;
+    color: white;
+}

@@ -1,0 +1,21 @@
+.dashboardHeader--container{
+    width: 85%;
+    height: 31px;
+    margin: 1% auto;
+}
+
+.settings--btn{
+    margin: 0px;
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    float: right;
+    cursor: pointer;
+    border: none;
+}
+.settings--icon{
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+}

@@ -1,0 +1,26 @@
+.BugReport--Container{
+    width: 100%;
+    height: fit-content;
+    margin: auto
+}
+
+.BugReport--reportScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0px;
+}
+.BugReport--textArea{
+    width: 50%;
+    height: 10rem
+}
+.BugReport--btn{
+    height: 2rem;
+    font-size: medium;
+}
+.BugReport--Confirmation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

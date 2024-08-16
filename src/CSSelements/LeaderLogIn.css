@@ -1,0 +1,29 @@
+.leaderLogIn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form--main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: #FFFFFF;
+}
+.form--main > label{
+    margin-top: 0.5rem
+}
+
+.button--submit{
+    margin-top: 1.5rem;
+    font-size: 1.5vw;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+}
+
+.helpLinks{
+    font-size: .8rem;
+}

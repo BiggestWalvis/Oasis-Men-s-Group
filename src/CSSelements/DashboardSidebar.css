@@ -1,0 +1,22 @@
+.dashboard--sidebar{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    background: black;
+}
+
+.dashboardBtns{
+    background: transparent;
+    background-color: white;
+    font-size: 20pt;
+    color: #000000;
+    border: 1px black solid;
+    width: 100%;
+    cursor: pointer;
+}
+.dashboardBtns.active{
+    color: #000000;
+    font-size: 20pt;
+      
+}
