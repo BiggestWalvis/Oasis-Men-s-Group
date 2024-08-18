@@ -17,7 +17,16 @@
 .BugReport--btn{
     height: 2rem;
     font-size: medium;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
 }
+.BugReport--btn:hover{
+    background: black;
+    color: white;
+}
+
 .BugReport--Confirmation{
     display: flex;
     flex-direction: column;
