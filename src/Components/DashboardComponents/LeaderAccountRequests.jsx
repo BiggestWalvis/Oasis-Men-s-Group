@@ -41,7 +41,7 @@ const querySnapshot = getDocs(q)
                     ))}
                 </div>
                 :
-                <p>There are no leader accounts to approve</p>
+                <p className="title-p">There are no leader accounts to approve</p>
             }
         </div>
 

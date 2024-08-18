@@ -8,3 +8,14 @@
     align-items: center;
 }
 
+.profile--resetbtn{
+    background: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.profile--resetbtn:hover{
+    background: black;
+    color: white;
+}
+
