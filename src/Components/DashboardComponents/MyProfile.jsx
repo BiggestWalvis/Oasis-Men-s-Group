@@ -2,7 +2,7 @@ import React from "react";
 import { sendPasswordReset } from "../../firebase.config";
 
 
-import "../../CSSelements/NewVisitors.css"
+import "../../CSSelements/Profile.css"
 
 export default function MyProfile(props){
 
