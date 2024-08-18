@@ -1,11 +1,11 @@
 .LeaderNames--container{
     margin: 0px;
-    padding: 0px;
+    padding: 0.19rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    border-bottom: 2px black solid;
+    border: 2px black solid;
 }
 .LeaderNames--pulledData{
     margin: 0px;

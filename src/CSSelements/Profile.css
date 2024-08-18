@@ -4,11 +4,13 @@
     border: 1px solid black;
     border-radius: 10px;
     margin: 0px;
-    padding: auto;
+    padding: 0.19rem;
     align-items: center;
+    justify-content: center;
 }
 
 .profile--resetbtn{
+    margin-right: 1rem;
     background: white;
     color: black;
     border: 1px solid black;
