@@ -13,7 +13,10 @@
     margin: 0% auto 0% 0%;
     font-size: 2em;
     font-weight: 700;
+    color: #FFFFFF;
+    text-decoration: none;
   }
+  
   .navbar.active{
     background-color: #FFFFFF;
     color: #000000;

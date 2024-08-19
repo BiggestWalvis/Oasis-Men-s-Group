@@ -24,7 +24,7 @@ export default function Navbar(props) {
 
   return (
       <nav className='nav--navbar'>
-          <Link><h2 className='nav--title' to="/">OASIS MEN'S GROUP</h2></Link>
+          <h2 className='nav--title'>OASIS MEN'S GROUP</h2>
           {/*render each of the tabs shown in the array tabData
           and update the state of each one when it is selected*/}
           {tabData.map((tab, index) => (
