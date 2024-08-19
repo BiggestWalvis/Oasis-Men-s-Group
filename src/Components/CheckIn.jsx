@@ -21,8 +21,7 @@ export default function CheckIn() {
         //pull all documents that match the checkin information
             const checkForDocs = async () => {
                 console.log("checkForDocs")
-                const q = query(checkInCollection, where(`firstName`, `==`, `${firstName}`),
-                                        where(`lastName`, `==`, `${lastName}`),
+                const q = query(checkInCollection,
                                         where(`phone`, `==`, `${phone}`))
                 console.log("checkForDocs2")
                 await getDocs(q).then((snapshot) => {
