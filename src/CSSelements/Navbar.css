@@ -1,28 +1,30 @@
 .nav--navbar{
     display: flex;
-    align-items: baseline;
-    padding-left: 10rem;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
     background-color: #000000;
     color: #FFFFFF;
-    font-size: 2vw;
+    margin: 0em;
+    padding: 0.5em 1em 0em 1em;
   }
   .nav--title{
     margin: 0% auto 0% 0%;
-    padding: 0%;
+    font-size: 2em;
+    font-weight: 700;
   }
   .navbar.active{
     background-color: #FFFFFF;
     color: #000000;
-    height: auto;
   }
   .navbar{
-    margin-right: 5rem;
-    font-size: 2vw;
+    margin: 0px;
+    padding-left: 5%;
+    font-size: 1.8em;
     font-weight: 600;
     border: none;
+    text-decoration: underline;
     background-color: transparent;
     color: #FFFFFF;
-    border-radius: 5px 5px 0px 0px;
-    padding: 2px 2px 25px 2px;
     cursor: pointer;
   }

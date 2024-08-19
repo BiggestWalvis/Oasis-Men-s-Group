@@ -1,0 +1,14 @@
+.LeaderMainPage--container{
+    max-width: 95vw;
+    margin: 0em 1em;
+    padding: 0em;
+}
+.LeaderMainPage--header{
+    margin: 0em;
+    padding: 0em;
+}
+.LeaderMainPage--body{
+    margin: 0em;
+    padding: 0em;
+    height: fit-content;
+}

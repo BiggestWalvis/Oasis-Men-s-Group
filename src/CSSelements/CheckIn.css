@@ -15,6 +15,14 @@
   }
   .button-submit{
     margin-top: 1rem;
-    font-size: 1.5vw;
+    font-size: 1.5rem;
     font-family: "neue-haas-grotesk-display", sans-serif;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.button-submit:hover{
+    background: black;
+    color: white;
   }

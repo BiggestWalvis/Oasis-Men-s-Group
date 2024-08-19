@@ -1,7 +1,5 @@
 .container{
-    width: 75%;
-    height: auto;
-    margin: 5rem auto;
+    height: fit-content;
     background-color: white;
     border: 1px transparent solid;
     box-shadow: 0 0 2px 0 
@@ -9,47 +7,24 @@
                 0 2px 2px 0 
                 color-mix(in srgb, #000 20%, transparent);
     border-radius: 10px;
-}
-.dashboard--content{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    height: fit-content;
+    width: 100%;
+    color: black;
 }
 
 .dashboard--banner{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: .2rem 0px;
-    font-size: 1.5rem;
-}
-.logout--btn{
-    margin-left: auto;
-}
-.settings--btn{
-    background: transparent
+    margin: 0em;
+    text-align: center;
+    padding: .2em 0px;
+    font-size: 1.5em;
 }
 
 .dashboard--body{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 100%;
     padding: 0px;
     margin: 0px;
     border-top: 2px black solid;
-}
-.dashboard--display{
-    width: 100%;
-    padding: 0px;
-    margin: 0px;
-}
-.dashboard--navbar{
-    width: 30%;
-    background-color: black;
-    padding: auto;
-    border: 1px solid red;
 }
