@@ -16,14 +16,11 @@ export default function CheckIn() {
         e.preventDefault()
 
         signInAnonymously(auth).then(() => {
-            console.log("before try")
         try{
         //pull all documents that match the checkin information
             const checkForDocs = async () => {
-                console.log("checkForDocs")
                 const q = query(checkInCollection,
                                         where(`phone`, `==`, `${phone}`))
-                console.log("checkForDocs2")
                 await getDocs(q).then((snapshot) => {
                             //look in each document for an old guy
                             console.log("checkForDocs3")
@@ -32,7 +29,6 @@ export default function CheckIn() {
                                     if (doc.data().newGuy === "false") {
                                         isNewGuy = "false"
                                     }
-                                console.log(isNewGuy)
                                })
                             const docRef = doc(checkInCollection)
                             if(isNewGuy === "false"){

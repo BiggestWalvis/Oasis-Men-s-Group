@@ -46,3 +46,8 @@
     background: black;
     color: white;
 }
+.newGuy--btn:focus{
+    background: white;
+    color: black;
+    border: 1px rgb(39, 39, 68) solid;
+}
