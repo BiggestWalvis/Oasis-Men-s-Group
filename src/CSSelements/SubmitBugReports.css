@@ -12,7 +12,10 @@
 }
 .BugReport--textArea{
     width: 50%;
-    height: 10rem
+    height: 10rem;
+    background-color: white;
+    background: transparent;
+    color: black;
 }
 .BugReport--btn{
     height: 2rem;
@@ -21,6 +24,7 @@
     color: black;
     border: 1px solid black;
     cursor: pointer;
+    margin-top: 1em;
 }
 .BugReport--btn:hover{
     background: black;

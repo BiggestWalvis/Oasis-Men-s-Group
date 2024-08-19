@@ -55,6 +55,7 @@ export default function LeaderNames(props) {
                 <div className="LeaderNames--radio">
                     <label>
                         <input 
+                            className="radio--btn"
                             type="radio"
                             id="option1"
                             value="approve"
@@ -66,6 +67,7 @@ export default function LeaderNames(props) {
                 <div className="LeaderNames--radio"> 
                     <label>
                         <input 
+                            className="radio--btn"
                             type="radio"
                             id="option2"
                             value="deny"
@@ -75,6 +77,7 @@ export default function LeaderNames(props) {
                     </label>
                 </div>
                 <button 
+                    className="LeaderNames--btn"
                     type="button"
                     onClick={() => submitRequestResult(props.id)}
                 >Submit
