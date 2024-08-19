@@ -1,22 +1,53 @@
 .div--reset--container{
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    color: black;
 }
 
 div > label {
-    margin-top: 1rem;    
+    margin: 1em auto 0.5em auto;
+    padding: 0em;  
+    text-align: center;  
 }
 
 .reset--textBox{
     width: fit-content;
     font-size: 1.2rem;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    background: transparent;
+}
+.reset--btn{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.reset--btn:hover{
+    background: black;
+    color: white;
+}
+.helpLinks--text{
+    font-size: 0.8em;
+    color: black;
+}
+.helpLinks--link{
+    color: black;  
+    font-size: 0.8em; 
 }
 
+.helpLinks--link:active {
+    color: rebeccapurple;
+}
 
-.reset--btn{
-    margin-top: 1rem;
-    font-family: "neue-haas-grotesk-display", sans-serif;
+.helpLinks--link[tabindex]:focus {
+    color:rebeccapurple;
 }

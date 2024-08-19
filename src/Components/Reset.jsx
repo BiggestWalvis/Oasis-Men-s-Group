@@ -21,8 +21,7 @@ export default function Reset() {
     return(
         <div className="div--reset--container">
             <label htmlFor="email">
-                Enter the Email Address 
-                Associated with Your Account
+                Enter the Email Address Associated with Your Account
             </label>
             <input 
                 type="text"
@@ -37,6 +36,9 @@ export default function Reset() {
             >
                 Send password reset email
             </button>
+            <div className='helpLinks--text'>
+                Back to <Link className={'helpLinks--link'} to="/login">Login</Link>.
+            </div>
         </div> 
     )
 

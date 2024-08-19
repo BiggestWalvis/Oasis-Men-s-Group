@@ -13,18 +13,44 @@
     align-items: center;
     color: black;
     background-color: #FFFFFF;
+    margin-bottom: 2em;
 }
 .form--main > label{
     margin-top: 0.5rem
 }
-
+.login--textBox{
+    background-color: white;
+    color: black;
+    background: transparent;
+    border: 1px solid black;
+}
 .button--submit{
-    margin-top: 1.5rem;
-    font-size: 1.5vw;
+    margin-top: 1rem;
+    font-size: 1.5rem;
     font-family: "neue-haas-grotesk-display", sans-serif;
+    background: white;
+    color: black;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.button--submit:hover{
+    background: black;
+    color: white;
+  }
+
+.helpLinks--text{
+    font-size: 1em;
+    color: black;
+}
+.helpLinks--link{
+    color: black;  
+    font-size: 1em; 
 }
 
-.helpLinks{
-    font-size: .8rem;
-    color: black;
+.helpLinks--link:active {
+    color: rebeccapurple;
+}
+
+.helpLinks--link[tabindex]:focus {
+    color:rebeccapurple;
 }

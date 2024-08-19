@@ -26,3 +26,9 @@
     background: black;
     color: white;
   }
+.checkIn--textBox{
+  background-color: white;
+  color: black;
+  background: transparent;
+  border: 1px solid black;
+}

@@ -75,6 +75,9 @@ export default function DashboardHeader(props) {
                     <MenuItem onClick={() => handleClose(3)}>
                         Submit Bug Reports
                     </MenuItem>
+                    <MenuItem onClick={() => handleClose(4)}>
+                        QR Code
+                    </MenuItem>
                     <MenuItem onClick={() => logout()}>
                         Logout
                     </MenuItem> 
