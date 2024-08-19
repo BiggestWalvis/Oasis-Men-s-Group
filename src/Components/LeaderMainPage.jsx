@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import DashboardHeader from "./DashboardComponents/DashboardHeader";
 import Dashboard from "./DashboardComponents/Dashboard";
 
+import '../CSSelements/LeaderMainPage.css'
+
 export default function LeaderMainPage() {
 
     const [displayOptions, setDisplayOptions] = React.useState(0)

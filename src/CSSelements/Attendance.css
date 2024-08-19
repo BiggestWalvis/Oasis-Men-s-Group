@@ -5,6 +5,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     width: 60%;
+    height: fit-content;
 }
 .dataOutput{
     display: flex;
@@ -26,12 +27,16 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    margin: 0em;
+    padding: 0em;
 }
 .yearSelection{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    margin: 0em;
+    padding: 0em;
 }
 .gatherDataBtn{
     background: white;
