@@ -4,6 +4,7 @@ import LeaderAccountRequests from "./LeaderAccountRequests";
 import MyProfile from './MyProfile'
 import SubmitBugReports from "./SubmitBugReports";
 import NewVisitors from "./NewVisitors"
+import SharableQRCode from "./SharableQRCode";
 
 import '../../CSSelements/DashboardBody.css'
 
@@ -35,6 +36,9 @@ export default function DashboardBody(props) {
                         email={props.email}
                         phone={props.phone}
                     />
+        },
+        {
+            content: <SharableQRCode />
         },
     ]
     

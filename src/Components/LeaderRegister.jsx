@@ -114,8 +114,8 @@ export default function LeaderRegister(props) {
                             Submit
                     </button>
                 </form>
-                <div className='helpLinks'>
-                    Already have an account? <Link to="/login">Login</Link> now.
+                <div className='helpLinks--text'>
+                    Already have an account? <Link className={'helpLinks--link'} to="/login">Login</Link> now.
                 </div>
             </div>
             :

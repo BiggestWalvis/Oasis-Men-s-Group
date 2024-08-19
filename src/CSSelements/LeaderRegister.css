@@ -13,18 +13,36 @@
     align-items: center;
     color: black;
     background-color: #FFFFFF;
+    margin-bottom: 2em;
 }
 .form--main > label{
     margin-top: 0.5rem
 }
-
+.register--textBox{
+    background-color: white;
+    color: black;
+    background: transparent;
+    border: 1px solid black;
+}
 .button--submit{
     margin-top: 1.5rem;
     font-size: 1.5vw;
     font-family: "neue-haas-grotesk-display", sans-serif;
 }
 
-.helpLinks{
-    font-size: .8rem;
-    margin-top: .5rem;
+.helpLinks--text{
+    font-size: 1em;
+    color: black;
+}
+.helpLinks--link{
+    color: black;  
+    font-size: 1em; 
+}
+
+.helpLinks--link:active {
+    color: rebeccapurple;
+}
+
+.helpLinks--link[tabindex]:focus {
+    color:rebeccapurple;
 }

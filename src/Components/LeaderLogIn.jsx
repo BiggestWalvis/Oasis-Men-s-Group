@@ -68,11 +68,11 @@ export default function LeaderLogin(props) {
                         Submit 
                 </button>
             </form>
-            <div className='helpLinks'>
-                <Link to ="/reset">Forgot Password</Link>
+            <div className='helpLinks--text'>
+                <Link className={'helpLinks--link'} to ="/reset">Forgot Password</Link>
             </div>
-            <div className='helpLinks'>
-                Don't have an account? <Link to="/register">Register</Link> now.
+            <div className='helpLinks--text'>
+                Don't have a Leader account? <Link className={'helpLinks--link'} to="/register">Request one</Link> now.
             </div>
         </div>
     )
