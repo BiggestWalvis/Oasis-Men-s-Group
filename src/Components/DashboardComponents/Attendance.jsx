@@ -264,7 +264,7 @@ export default function Attendance() {
             <div className="dataSelection">
                 <div className="monthSelection">
                     <label htmlFor="month">Select Month</label>
-                    <select id="months" onChange={selectMonth}>
+                    <select className="select--selection" id="months" onChange={selectMonth}>
                         <option value="">--Please Choose a Month--</option>
                         <option value="01">January</option>
                         <option value="02">Feburary</option>
@@ -282,7 +282,7 @@ export default function Attendance() {
                 </div>
                 <div className="yearSelection">
                     <label htmlFor="year">Select Year</label>
-                    <select id="years" onChange={selectYear}>
+                    <select className="select--selection" id="years" onChange={selectYear}>
                         <option value="">--Please Choose a Year--</option>
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
@@ -313,7 +313,7 @@ export default function Attendance() {
                     Week 3 Attendance: {week3Array.length} <br />
                     Week 4 Attendance: {week4Array.length} <br />
                     Week 5 Attendance: {week5Array.length} <br />
-                    -------------------------------------------<br />
+                    --------------------------------------<br />
                     Monthly Total: {week1Array.length + week2Array.length 
                                     + week3Array.length + week4Array.length 
                                     + week5Array.length} 
@@ -331,7 +331,7 @@ export default function Attendance() {
                     October: {month10Array.length}<br />
                     November: {month11Array.length}<br />
                     December: {month12Array.length}<br />
-                    ------------- <br />
+                    --------------------<br />
                     Monthly Average: {(yearlyTotal)/monthsWithData()} <br />
                 </p>
             </div>

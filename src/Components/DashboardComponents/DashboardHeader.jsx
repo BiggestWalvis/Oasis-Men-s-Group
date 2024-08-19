@@ -48,40 +48,39 @@ export default function DashboardHeader(props) {
                 className="settings--icon" 
                 src="https://i.postimg.cc/qqrn1qxC/settings-icon.png"/>
             </button>
-            
-                <Menu   
-                    keepMounted
-                    anchorEl={anchorEl}
-                    onClose={() => handleClose("menu")}
-                    open={Boolean(anchorEl)}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'right',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                    }}
-                >   
-                    <MenuItem onClick={() => handleClose(0)}>
-                        Dashboard 
-                    </MenuItem>
-                    <MenuItem onClick={() => handleClose(1)}>
-                        My Profile 
-                    </MenuItem>
-                    <MenuItem onClick={() => handleClose(2)}>
-                        Leader Account Requests 
-                    </MenuItem>
-                    <MenuItem onClick={() => handleClose(3)}>
-                        Submit Bug Reports
-                    </MenuItem>
-                    <MenuItem onClick={() => handleClose(4)}>
-                        QR Code
-                    </MenuItem>
-                    <MenuItem onClick={() => logout()}>
-                        Logout
-                    </MenuItem> 
-                </Menu>
+            <Menu   
+                keepMounted
+                anchorEl={anchorEl}
+                onClose={() => handleClose("menu")}
+                open={Boolean(anchorEl)}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                }}
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                }}
+            >   
+                <MenuItem onClick={() => handleClose(0)}>
+                    Dashboard 
+                </MenuItem>
+                <MenuItem onClick={() => handleClose(1)}>
+                    My Profile 
+                </MenuItem>
+                <MenuItem onClick={() => handleClose(2)}>
+                    Leader Account Requests 
+                </MenuItem>
+                <MenuItem onClick={() => handleClose(3)}>
+                    Submit Bug Reports
+                </MenuItem>
+                <MenuItem onClick={() => handleClose(4)}>
+                    QR Code
+                </MenuItem>
+                <MenuItem onClick={() => logout()}>
+                    Logout
+                </MenuItem> 
+            </Menu>
              
         </div>
     )

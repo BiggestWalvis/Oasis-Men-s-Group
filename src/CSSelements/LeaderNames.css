@@ -25,3 +25,27 @@
     margin: 0px;
     padding: 1% 0px;
 }
+.LeaderNames--radio{
+    background-color: white;
+    background: transparent;
+    color: black;
+    margin: 0em;
+    padding: 0em;
+}
+.LeaderNames--btn{
+    background-color: white;
+    background: transparent;
+    color: black;
+}
+.radio--btn{
+    appearance: none;
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+    border: 2px solid #6e6d6d;
+    transition: 0.2s all linear;
+    margin-right: 2px;
+}
+.radio--btn:checked{
+    border: 6px solid black;
+}
