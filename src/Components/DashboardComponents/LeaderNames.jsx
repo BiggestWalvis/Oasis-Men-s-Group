@@ -1,9 +1,8 @@
 import React from "react";
 
 import "../../CSSelements/LeaderNames.css"
-import { registerUser, auth, db } from "../../firebase.config";
-import { updateDoc, query, where, collection, 
-        getDocs, doc, deleteDoc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase.config";
+import { updateDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
 
 export default function LeaderNames(props) {
 
@@ -13,31 +12,31 @@ export default function LeaderNames(props) {
         setResults(input)
     }
 
-    async function submitRequestResult(id) {
-        try{
-            if(results==="approve"){
-                //Receive id from parrent component. 
-                //Use id to update the document and update the role
-                    const docRef = doc(db, "users", props.id)
-                    updateDoc(docRef, {
-                        role: "Leader"
-                    })
-            }else{
-            //delete document and remove user
-                await setDoc(doc(db, "toDelete", `${props.firstName} ${props.lastName}`), {
-                    firstName: props.firstName,
-                    lastName: props.lastName,
-                    email: props.email,
-                    phone: props.phone,
+async function submitRequestResult() {
+    try{
+        if(results==="approve"){
+            //Receive id from parrent component. 
+            //Use id to update the document and update the role
+                const docRef = doc(db, "users", props.id)
+                updateDoc(docRef, {
+                    role: "Leader"
                 })
-                await deleteDoc(doc(db, "users", props.id))
-                console.log(results)
-            }
-        }catch(err){
-            console.error(err)
-            alert("You do not have permission for this action")
+        }else{
+        //delete document and remove user
+            await setDoc(doc(db, "toDelete", `${props.firstName} ${props.lastName}`), {
+                firstName: props.firstName,
+                lastName: props.lastName,
+                email: props.email,
+                phone: props.phone,
+            })
+            await deleteDoc(doc(db, "users", props.id))
+            console.log(results)
         }
+    }catch(err){
+        console.error(err)
+        alert("You do not have permission for this action")
     }
+}
     
     
     return(
