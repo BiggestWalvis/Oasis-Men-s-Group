@@ -15,14 +15,22 @@ const q = query(collection(db, "users"), where("role", "==", "RequestingAccess")
 const [requestingAccess, setRequestingAccess] = React.useState([])
 
 //get specific documents, then put all documents in an array
-const querySnapshot = getDocs(q)
-                        .then((snapshot) => {
-                            let leadersArray = []
-                            snapshot.forEach((doc) => {
-                                leadersArray.push({ ...doc.data(), id: doc.id})
-                                })
-                        setRequestingAccess(leadersArray)
-                        })
+async function gatherData() {
+    await getDocs(q)
+        .then((snapshot) => {
+            let leadersArray = []
+            snapshot.forEach((doc) => {
+                leadersArray.push({ ...doc.data(), id: doc.id})
+                })
+        setRequestingAccess(leadersArray)
+        console.log("getDocs")
+        })
+}
+    
+
+    useEffect(() => {
+        gatherData()
+    }, [requestingAccess])
 
     return(
         <div className="dashboard-leader-container">

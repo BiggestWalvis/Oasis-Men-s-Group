@@ -13,7 +13,6 @@ export default function NewVisitors() {
     
     //find all documents in checkIn with a newGuy tag
     const visitorQuery = query(collection(db, "checkIn"),
-                            where('date', '<=', `${currentDate}`),
                             where('newGuy', '==', `true`))
 
     //put all the documents with a newguy tag into a state array

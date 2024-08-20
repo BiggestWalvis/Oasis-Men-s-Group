@@ -34,7 +34,15 @@
 }
 .LeaderNames--btn{
     background-color: white;
-    background: transparent;
+    color: black;
+    cursor: pointer;
+}
+.LeaderNames--btn:hover{
+    background-color: black;
+    color: white;
+}
+.LeaderNames--btn:active{
+    background-color: white;
     color: black;
 }
 .radio--btn{
