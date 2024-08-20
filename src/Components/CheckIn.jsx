@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import { checkInCollection, auth, signInAnonymously } from '../firebase.config';
 import { getDocs, query, setDoc, where, doc } from 'firebase/firestore';
+import PhoneInput from 'react-phone-number-input/input';
 
+import 'react-phone-number-input/style.css'
 import '../CSSelements/CheckIn.css'
 
 export default function CheckIn() {
@@ -91,16 +93,16 @@ export default function CheckIn() {
                     required
                 ></input>
                 <label htmlFor='phone'>Phone Number</label>
-                <input 
-                    type="tel" 
+                <PhoneInput 
                     id='phone'
-                    minLength="10"
-                    maxLength="10"
+                    country="US"
+                    maxLength='14'
                     className='checkIn--textBox'
+                    placeholder='(555) 123-4567'
                     value={phone}
-                    onChange={(item) => setPhone(item.target.value)}
+                    onChange={()=>setPhone(phone)}
                     required
-                ></input>
+                />
                 <button 
                     className="button-submit" 
                     type='submit'
