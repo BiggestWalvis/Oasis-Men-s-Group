@@ -25,7 +25,6 @@ export default function CheckIn() {
                                         where(`phone`, `==`, `${phone}`))
                 await getDocs(q).then((snapshot) => {
                             //look in each document for an old guy
-                            console.log("checkForDocs3")
                             let isNewGuy = ""
                                 snapshot.docs.forEach((doc) => {
                                     if (doc.data().newGuy === "false") {
@@ -37,7 +36,7 @@ export default function CheckIn() {
                                 setDoc(doc(checkInCollection, docRef.id),{
                                                     firstName,
                                                     lastName,
-                                                    phone,
+                                                    phone: phone,
                                                     date,
                                                     newGuy: "false",
                                                     id: docRef.id
@@ -47,7 +46,7 @@ export default function CheckIn() {
                                 setDoc(doc(checkInCollection, docRef.id),{
                                                     firstName,
                                                     lastName,
-                                                    phone,
+                                                    phone: phone,
                                                     date,
                                                     newGuy: "true",
                                                     id: docRef.id
@@ -64,6 +63,9 @@ export default function CheckIn() {
         }
     })
     alert("You have Checked In!")
+    setFirstName("")
+    setLastName("")
+    setPhone("")
     }
 
 
@@ -95,12 +97,12 @@ export default function CheckIn() {
                 <label htmlFor='phone'>Phone Number</label>
                 <PhoneInput 
                     id='phone'
-                    country="US"
-                    maxLength='14'
+                    defaultCountry="US"
+                    minLength='10'
                     className='checkIn--textBox'
                     placeholder='(555) 123-4567'
                     value={phone}
-                    onChange={()=>setPhone(phone)}
+                    onChange={(item)=>setPhone(item)}
                     required
                 />
                 <button 
