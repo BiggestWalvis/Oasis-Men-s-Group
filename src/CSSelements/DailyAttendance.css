@@ -1,0 +1,39 @@
+.DailyAttendance--container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+@media screen and (min-width: 1200px) {
+    .Name--container{
+        margin: 0em;
+        padding: 0em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 60vh;
+        column-gap: 1em;
+    }
+  }
+
+.DatePicker--container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0em;
+}
+.datepicker{
+    background-color: white;
+    color: black;
+}
+p{
+    margin: 0em;
+    padding: 0em;
+}
+h3{
+    margin: 0.5em;
+    padding: 0em;
+}
