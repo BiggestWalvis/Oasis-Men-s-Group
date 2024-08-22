@@ -1,18 +1,26 @@
-.tab-content{
-    height: 100%;
-    width: 50%;
-    margin: auto;
-    font-size: 1.5vw; 
-  }
   .form--main{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     color: black;
     background-color: #FFFFFF;
   }
+  .checkInSuccess--container{
+    margin: 0em;
+    padding: 0em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    background-color: #FFFFFF;
+  }
+  .checkIn--label{
+    margin: 0.5em 0em 0em 0em;
+    padding: 0em;
+  }
+  
   .button-submit{
     margin-top: 1rem;
     font-size: 1.5rem;
@@ -27,8 +35,22 @@
     color: white;
   }
 .checkIn--textBox{
+  margin: 0em;
+  padding: 0em;
   background-color: white;
   color: black;
-  background: transparent;
   border: 1px solid black;
+}
+.resetCheckInSuccess{
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.resetCheckInSuccess:hover{
+  background: black;
+  color: white;
 }

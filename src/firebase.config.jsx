@@ -39,9 +39,10 @@ export const usersCollection = collection(db, "users")
 
 //global variable for date
 const date = new Date()
-const day = date.getDate()
-const month = date.getMonth() + 1
-const year = date.getFullYear()
+const LocalTime = new Date(date.toLocaleDateString("en-US", {timeZone: "America/Los_Angeles"}))
+const day = LocalTime.getDate()
+const month = LocalTime.getMonth() + 1
+const year = LocalTime.getFullYear()
 
 export const currentDate = `${year}-${month}-${day}`
 
