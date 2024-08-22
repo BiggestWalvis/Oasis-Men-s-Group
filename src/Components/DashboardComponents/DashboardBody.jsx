@@ -7,6 +7,7 @@ import NewVisitors from "./NewVisitors"
 import SharableQRCode from "./SharableQRCode";
 
 import '../../CSSelements/DashboardBody.css'
+import DailyAttendance from "./DailyAttendance";
 
 export default function DashboardBody(props) {
 
@@ -17,6 +18,9 @@ export default function DashboardBody(props) {
                         <Attendance />
                         <NewVisitors />
                     </div>
+        },
+        {
+            content: <DailyAttendance />
         },
         {
             content: <MyProfile 
@@ -40,6 +44,7 @@ export default function DashboardBody(props) {
         {
             content: <SharableQRCode />
         },
+        
     ]
     
     return(

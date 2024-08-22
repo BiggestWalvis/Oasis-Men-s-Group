@@ -66,15 +66,18 @@ export default function DashboardHeader(props) {
                     Dashboard 
                 </MenuItem>
                 <MenuItem onClick={() => handleClose(1)}>
-                    My Profile 
+                    Daily Attendance 
                 </MenuItem>
                 <MenuItem onClick={() => handleClose(2)}>
-                    Leader Account Requests 
+                    My Profile 
                 </MenuItem>
                 <MenuItem onClick={() => handleClose(3)}>
-                    Submit Bug Reports
+                    Leader Account Requests
                 </MenuItem>
                 <MenuItem onClick={() => handleClose(4)}>
+                    Submit Bug Reports
+                </MenuItem>
+                <MenuItem onClick={() => handleClose(5)}>
                     QR Code
                 </MenuItem>
                 <MenuItem onClick={() => logout()}>
