@@ -43,6 +43,7 @@ export default function CheckIn() {
                                                         phone: phone,
                                                         date: date,
                                                         newGuy: "false",
+                                                        recorded: false,
                                                         id: docRef.id
                                     })
                             //if old user, then create new checkIn document with newGuy set to false
@@ -53,6 +54,7 @@ export default function CheckIn() {
                                                         phone: phone,
                                                         date: date,
                                                         newGuy: "true",
+                                                        recorded: false,
                                                         id: docRef.id
                                     })
                                 }
