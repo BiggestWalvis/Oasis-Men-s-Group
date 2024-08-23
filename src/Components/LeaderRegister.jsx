@@ -3,7 +3,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from "react-router-dom"
 import { auth, db, registerUser } from "../firebase.config"
 import { doc, setDoc, addDoc,collection, getDocs, query, where } from 'firebase/firestore';
+import PhoneInput from 'react-phone-number-input/input';
 
+import 'react-phone-number-input/style.css'
 import '../CSSelements/LeaderRegister.css'
 
 export default function LeaderRegister(props) {
@@ -27,7 +29,14 @@ export default function LeaderRegister(props) {
     const register = async (e) => {
         if (password !== confirmPassword) {
             alert("Your password does not match")
-        }else {
+        }else if( firstName === "" ||
+                    lastName === "" ||
+                    email === "" ||
+                    phone === "" ||
+                    password === ""
+            ){
+            alert("Please Fill in ALL fields")
+        }else{
             e.preventDefault()
             await registerUser(firstName, lastName, email, phone, password)
     //set variable to false to change what is shown on the screen
@@ -80,14 +89,16 @@ export default function LeaderRegister(props) {
                         required>
                     </input>
                     <label htmlFor='email'>Phone Number</label>
-                    <input 
-                        type="phone" 
-                        id='phone' 
-                        className='register--textBox'
-                        value={phone}
-                        onChange={(item) => setPhone(item.target.value)}
-                        required>
-                    </input>
+                    <PhoneInput 
+                            id='phone'
+                            defaultCountry="US"
+                            minLength='10'
+                            className='register--textBox'
+                            placeholder='(555) 123-4567'
+                            value={phone}
+                            onChange={(item)=>setPhone(item)}
+                            required
+                        />
                     <label htmlFor='password'>Password</label>
                     <input 
                         type="password" 
