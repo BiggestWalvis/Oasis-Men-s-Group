@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { currentDate, checkInCollection } from '../../firebase.config';
-import { query, getDocs, where } from 'firebase/firestore';
+import { query, getDocs, where, doc } from 'firebase/firestore';
 import DatePicker from "react-datepicker";
 import UserBox from './UserBox';
 import { format } from 'date-fns';
@@ -13,8 +13,11 @@ export default function DailyAttendance() {
     const [newDate, setNewDate] = React.useState(new Date())
     const [attendance, setAttendance] = React.useState([])
 
+
+
+
     attendance.sort(function (a,b) {
-        if (a.lastName < b.lastName){
+        if (a.lastName < b.lastName ){
             return -1
         }
         if (a.lastName > b.lastName){
@@ -61,6 +64,8 @@ export default function DailyAttendance() {
                         key={index}
                         firstName={tab.firstName}
                         lastName={tab.lastName}
+                        id={tab.id}
+                        recorded={tab.recorded}
                     />
                 ))}
 
