@@ -19,7 +19,7 @@ import {
   signOut,
   signInAnonymously,
 } from "firebase/auth"
-
+import { format } from 'date-fns';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -45,6 +45,7 @@ const month = LocalTime.getMonth() + 1
 const year = LocalTime.getFullYear()
 
 export const currentDate = `${year}-${month}-${day}`
+export const formattedDate = format(currentDate, "yyyy-MM-dd")
 
 //Sign in with Username and Password
 const logInWithEmailAndPassword = async (email, password) => {

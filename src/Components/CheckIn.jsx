@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { checkInCollection, auth, signInAnonymously, currentDate } from '../firebase.config';
+import { checkInCollection, auth, signInAnonymously, formattedDate } from '../firebase.config';
 import { getDocs, query, setDoc, where, doc } from 'firebase/firestore';
 import PhoneInput from 'react-phone-number-input/input';
 
@@ -12,8 +12,8 @@ export default function CheckIn() {
     const [phone, setPhone] = React.useState("")
     const [checkInSuccess, setCheckInSuccess] = React.useState(false)
     
-    const date = new Date().toISOString().split('T')[0]
-
+    const date = formattedDate
+    
 
     const submitData = async (e) => {
         e.preventDefault()
@@ -41,7 +41,7 @@ export default function CheckIn() {
                                                         firstName,
                                                         lastName,
                                                         phone: phone,
-                                                        date: date,
+                                                        date: formattedDate,
                                                         newGuy: "false",
                                                         recorded: false,
                                                         id: docRef.id
