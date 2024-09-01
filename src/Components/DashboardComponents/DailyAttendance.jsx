@@ -2,8 +2,8 @@ import React, { useEffect } from 'react'
 import { currentDate, checkInCollection } from '../../firebase.config';
 import { query, getDocs, where, doc } from 'firebase/firestore';
 import DatePicker from "react-datepicker";
-import { format } from 'date-fns';
 import UserBox from './UserBox';
+import { format } from 'date-fns';
 
 import "react-datepicker/dist/react-datepicker.css";
 import "../../CSSelements/DailyAttendance.css"
@@ -31,7 +31,7 @@ export default function DailyAttendance() {
     async function handleChange(date) {
         const q = query(checkInCollection,
             where(`date`, `==`, `${date}`))
-        
+            console.log(date,"date on dailyAttendance")
         await getDocs(q).then((snapshot) => {
             let attended = []
             snapshot.docs.forEach((doc) => {
