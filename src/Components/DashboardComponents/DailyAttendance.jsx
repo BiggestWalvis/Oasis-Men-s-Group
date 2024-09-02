@@ -27,11 +27,22 @@ export default function DailyAttendance() {
     })
 
     let formattedDate = format(newDate, "yyyy-MM-dd")
+    let safariDate = format(newDate, "MM/dd/yyyy")
 
     async function handleChange(date) {
         const q = query(checkInCollection,
             where(`date`, `==`, `${date}`))
-            console.log(date,"date on dailyAttendance")
+        await getDocs(q).then((snapshot) => {
+            let attended = []
+            snapshot.docs.forEach((doc) => {
+                attended.push({...doc.data()})    
+            })
+            setAttendance(attended)
+        })
+    }
+    async function safariHandleChange(date) {
+        const q = query(checkInCollection,
+            where(`date`, `==`, `${date}`))
         await getDocs(q).then((snapshot) => {
             let attended = []
             snapshot.docs.forEach((doc) => {
@@ -41,8 +52,15 @@ export default function DailyAttendance() {
         })
     }
 
+    let dateChange = new Date("09/02/2024").getTime()
+
     useEffect(() => {
-        handleChange(formattedDate)
+        console.log(newDate)
+        if (newDate.getTime() >= dateChange){
+            safariHandleChange(safariDate)
+        }else{
+            handleChange(formattedDate)
+        }
     }, [newDate])   
 
     return(
