@@ -39,19 +39,6 @@ export default function DailyAttendance() {
             setAttendance(attended)
         })
     }
-   /* async function safariHandleChange(date) {
-        const q = query(checkInCollection,
-            where(`date`, `==`, `${date}`))
-        await getDocs(q).then((snapshot) => {
-            let attended = []
-            snapshot.docs.forEach((doc) => {
-                attended.push({...doc.data()})    
-            })
-            setAttendance(attended)
-        })
-    }*/
-
-    //let dateChange = new Date("09/02/2024").getTime()
 
     useEffect(() => {
             handleChange(formattedDate)
