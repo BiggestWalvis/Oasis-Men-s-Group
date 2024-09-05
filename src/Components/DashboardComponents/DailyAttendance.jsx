@@ -76,6 +76,7 @@ export default function DailyAttendance() {
                 selected={newDate}
                 /> 
             </div>
+            <h4>Total Attended: {attendance.length}</h4>
             <div className='Name--container'>
                 {attendance.map((tab,index) => (
                     <UserBox 
