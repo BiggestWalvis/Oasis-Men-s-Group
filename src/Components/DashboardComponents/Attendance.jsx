@@ -31,220 +31,119 @@ export default function Attendance() {
     const [month11Array, setMonth11Array] = React.useState([])
     const [month12Array, setMonth12Array] = React.useState([])
 
-//Query for each weekly total
-    const week1Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-${month}-01`), 
-                        where('date', '<=', `${year}-${month}-07`))
-    const week2Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-${month}-08`), 
-                        where('date', '<=', `${year}-${month}-14`))
-    const week3Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-${month}-15`), 
-                        where('date', '<=', `${year}-${month}-21`))
-    const week4Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-${month}-22`), 
-                        where('date', '<=', `${year}-${month}-28`))
-    const week5Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-${month}-29`), 
-                        where('date', '<=', `${year}-${month}-31`))
+//state to hold all documents
+    const [yearlyArray, setYearlyArray] = React.useState([])
 
-//Query for each monthly totals
-    const month1Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-01-01`), 
-                        where('date', '<=', `${year}-01-31`))
-    const month2Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-02-01`), 
-                        where('date', '<=', `${year}-02-31`))
-    const month3Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-03-01`), 
-                        where('date', '<=', `${year}-03-31`))
-    const month4Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-04-01`), 
-                        where('date', '<=', `${year}-04-31`))
-    const month5Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-05-01`), 
-                        where('date', '<=', `${year}-05-31`))
-    const month6Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-06-01`), 
-                        where('date', '<=', `${year}-06-31`))
-    const month7Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-07-01`), 
-                        where('date', '<=', `${year}-07-31`))
-    const month8Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-08-01`), 
-                        where('date', '<=', `${year}-08-31`))
-    const month9Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-09-01`), 
-                        where('date', '<=', `${year}-09-31`))
-    const month10Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-10-01`), 
-                        where('date', '<=', `${year}-10-31`))
-    const month11Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-11-01`), 
-                        where('date', '<=', `${year}-11-31`))
-    const month12Query = query(collection(db, "checkIn"), 
-                        where('date', '>=', `${year}-12-01`), 
-                        where('date', '<=', `${year}-12-31`))
+//Query all documents within the year selected
+    const yearlyQuery = query(collection(db, "checkIn"),
+                        where('date', '>=', `01/01/${year}`),
+                        where('date', '<=', `12/31/${year}`))
+    
+    async function gatherData() {
+        //pull weekly data from Firestore and store in appropriate state array
+            await getDocs(yearlyQuery)
+                .then((snapshot) => {
+                    let yearlyAttendees = []
+                    snapshot.docs.forEach((doc) => {
+                        yearlyAttendees.push({ ...doc.data(), id: doc.id })
+                    })
+                    setYearlyArray(yearlyAttendees)
+                })
+        }
 
-    const yearlyTotal = (month1Array.length + month2Array.length
-                        + month3Array.length + month4Array.length
-                        + month5Array.length + month6Array.length
-                        + month7Array.length + month8Array.length
-                        + month9Array.length + month10Array.length
-                        + month11Array.length + month12Array.length
-                        )
-    const monthsWithData = () => {
-        let months = (month1Array.length > 1 ? 1 : 0) + (month2Array.length > 1 ? 1 : 0) +
-                    (month3Array.length > 1 ? 1 : 0) + (month4Array.length > 1 ? 1 : 0) + 
-                    (month5Array.length > 1 ? 1 : 0) + (month6Array.length > 1 ? 1 : 0) + 
-                    (month7Array.length > 1 ? 1 : 0) + (month8Array.length > 1 ? 1 : 0) + 
-                    (month9Array.length > 1 ? 1 : 0) + (month10Array.length > 1 ? 1 : 0) + 
-                    (month11Array.length > 1 ? 1 : 0) + (month12Array.length > 1 ? 1 : 0)
-        return(months)
+//temporary arrays to allow for monthly data organization
+    let month1Attendees = []
+    let month2Attendees = []
+    let month3Attendees = []
+    let month4Attendees = []
+    let month5Attendees = []
+    let month6Attendees = []
+    let month7Attendees = []
+    let month8Attendees = []
+    let month9Attendees = []
+    let month10Attendees = []
+    let month11Attendees = []
+    let month12Attendees = []
+
+    //pull monthly data from the array
+    function organizeDataMonthly() {
+            yearlyArray.forEach(i => {
+                if(i.date >= `01/01/${year}` && i.date <= `01/31/${year}`){
+                    month1Attendees.push({i})
+                }else if(i.date >= `02/01/${year}` && i.date <= `02/29/${year}`){
+                    month2Attendees.push({i})
+                }else if(i.date >= `03/01/${year}` && i.date <= `03/31/${year}`){
+                    month3Attendees.push({i})
+                }else if(i.date >= `04/01/${year}` && i.date <= `04/31/${year}`){
+                    month4Attendees.push({i})
+                }else if(i.date >= `05/01/${year}` && i.date <= `05/31/${year}`){
+                    month5Attendees.push({i})
+                }else if(i.date >= `06/01/${year}` && i.date <= `06/31/${year}`){
+                    month6Attendees.push({i})
+                }else if(i.date >= `07/01/${year}` && i.date <= `07/31/${year}`){
+                    month7Attendees.push({i})
+                }else if(i.date >= `08/01/${year}` && i.date <= `08/31/${year}`){
+                    month8Attendees.push({i})
+                }else if(i.date >= `09/01/${year}` && i.date <= `09/31/${year}`){
+                    month9Attendees.push({i})
+                }else if(i.date >= `10/01/${year}` && i.date <= `10/31/${year}`){
+                    month10Attendees.push({i})
+                }else if(i.date >= `11/01/${year}` && i.date <= `11/31/${year}`){
+                    month11Attendees.push({i})
+                }else if(i.date >= `12/01/${year}` && i.date <= `12/31/${year}`){
+                    month12Attendees.push({i})
+                }
+            })
+        //set monthly data to State
+            setMonth1Array(month1Attendees)
+            setMonth2Array(month2Attendees)
+            setMonth3Array(month3Attendees)
+            setMonth4Array(month4Attendees)
+            setMonth5Array(month5Attendees)
+            setMonth6Array(month6Attendees)
+            setMonth7Array(month7Attendees)
+            setMonth8Array(month8Attendees)
+            setMonth9Array(month9Attendees)
+            setMonth10Array(month10Attendees)
+            setMonth11Array(month11Attendees)
+            setMonth12Array(month12Attendees)
+    }
+    
+//temporary arrays to allow fro weekly organizing of data
+    let week1Attendees = []
+    let week2Attendees = []
+    let week3Attendees = []
+    let week4Attendees = []
+    let week5Attendees = []
+//organize weekly data
+    function organizeDataWeekly(){
+        yearlyArray.forEach((i) => {
+            if(i.date >= `${month}/01/${year}` && i.date <= `${month}/07/${year}`){
+                week1Attendees.push({i})
+            }else if(i.date >= `${month}/08/${year}` && i.date <= `${month}/14/${year}`){
+                week2Attendees.push({i})
+            }else if(i.date >= `${month}/15/${year}` && i.date <= `${month}/21/${year}`){
+                week3Attendees.push({i})
+            }else if(i.date >= `${month}/22/${year}` && i.date <= `${month}/28/${year}`){
+                week3Attendees.push({i})
+            }else if(i.date >= `${month}/29/${year}` && i.date <= `${month}/31/${year}`){
+                week3Attendees.push({i})
+            }
+        })
+    //set weekly data to state
+        setWeek1Array(week1Attendees)
+        setWeek2Array(week2Attendees)
+        setWeek3Array(week3Attendees)
+        setWeek4Array(week4Attendees)
+        setWeek5Array(week5Attendees)
     }
 
-//function to gather data from Firestore
-    function gatherData() {
-    //pull weekly data from Firestore and store in appropriate state array
-        getDocs(week1Query)
-            .then((snapshot) => {
-                let attendeesWeek1 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesWeek1.push({ ...doc.data(), id: doc.id })
-                })
-                setWeek1Array(attendeesWeek1)
-            })
-        getDocs(week2Query)
-            .then((snapshot) => {
-                let attendeesWeek2 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesWeek2.push({ ...doc.data(), id: doc.id })
-                })
-                setWeek2Array(attendeesWeek2)
-            })
-        getDocs(week3Query)
-            .then((snapshot) => {
-                let attendeesWeek3 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesWeek3.push({ ...doc.data(), id: doc.id })
-                })
-                setWeek3Array(attendeesWeek3)
-            })
-        getDocs(week4Query)
-            .then((snapshot) => {
-                let attendeesWeek4 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesWeek4.push({ ...doc.data(), id: doc.id })
-                })
-                setWeek4Array(attendeesWeek4)
-            })
-        getDocs(week5Query)
-            .then((snapshot) => {
-                let attendeesWeek5 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesWeek5.push({ ...doc.data(), id: doc.id })
-                })
-                setWeek5Array(attendeesWeek5)
-            })
-
-    //pull monthly data from Firestore and store in appriate state array
-        getDocs(month1Query)
-            .then((snapshot) => {
-                let attendeesMonth1 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth1.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth1Array(attendeesMonth1)
-            })
-        getDocs(month2Query)
-            .then((snapshot) => {
-                let attendeesMonth2 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth2.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth2Array(attendeesMonth2)
-            })
-        getDocs(month3Query)
-            .then((snapshot) => {
-                let attendeesMonth3 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth3.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth3Array(attendeesMonth3)
-            })
-        getDocs(month4Query)
-            .then((snapshot) => {
-                let attendeesMonth4 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth4.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth4Array(attendeesMonth4)
-            })
-        getDocs(month5Query)
-            .then((snapshot) => {
-                let attendeesMonth5 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth5.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth5Array(attendeesMonth5)
-            })
-        getDocs(month6Query)
-            .then((snapshot) => {
-                let attendeesMonth6 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth6.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth6Array(attendeesMonth6)
-            })
-        getDocs(month7Query)
-            .then((snapshot) => {
-                let attendeesMonth7 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth7.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth7Array(attendeesMonth7)
-            })
-        getDocs(month8Query)
-            .then((snapshot) => {
-                let attendeesMonth8 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth8.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth8Array(attendeesMonth8)
-            })
-        getDocs(month9Query)
-            .then((snapshot) => {
-                let attendeesMonth9 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth9.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth9Array(attendeesMonth9)
-            })
-        getDocs(month10Query)
-            .then((snapshot) => {
-                let attendeesMonth10 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth10.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth10Array(attendeesMonth10)
-            })
-        getDocs(month11Query)
-            .then((snapshot) => {
-                let attendeesMonth11 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth11.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth11Array(attendeesMonth11)
-            })
-        getDocs(month12Query)
-            .then((snapshot) => {
-                let attendeesMonth12 = []
-                snapshot.docs.forEach((doc) => {
-                    attendeesMonth12.push({ ...doc.data(), id: doc.id })
-                })
-                setMonth12Array(attendeesMonth12)
-            })
-    }
+    useEffect(() => {
+        if (yearlyArray.length >= 1){
+            organizeDataMonthly()
+            organizeDataWeekly()
+        }
+    }, [yearlyArray])
     
 //function to determine the year and month that a user selects
     function selectYear() {
@@ -256,6 +155,49 @@ export default function Attendance() {
         const months = document.getElementById("months")
         const selectedValue = months.options[months.selectedIndex].value
         setMonth(selectedValue)
+    }
+    
+//function to determine the yearly average
+    function yearlyAverage(){
+        let totalMonths = 0
+        
+        if (month1Array.length > 0){
+            totalMonths++
+        }
+        if (month2Array.length > 0){
+            totalMonths++
+        }
+        if (month3Array.length > 0){
+            totalMonths++
+        }
+        if (month4Array.length > 0){
+            totalMonths++
+        }
+        if (month5Array.length > 0){
+            totalMonths++
+        }
+        if (month6Array.length > 0){
+            totalMonths++
+        }
+        if (month7Array.length > 0){
+            totalMonths++
+        }
+        if (month8Array.length > 0){
+            totalMonths++
+        }
+        if (month9Array.length > 0){
+            totalMonths++
+        }
+        if (month10Array.length > 0){
+            totalMonths++
+        }
+        if (month11Array.length > 0){
+            totalMonths++
+        }
+        if (month12Array.length > 0){
+            totalMonths++
+        }
+        return yearlyArray.length/totalMonths
     }
 
 
@@ -332,7 +274,7 @@ export default function Attendance() {
                     November: {month11Array.length}<br />
                     December: {month12Array.length}<br />
                     --------------------<br />
-                    Monthly Average: {(yearlyTotal)/monthsWithData()} <br />
+                    Monthly Average: {yearlyAverage()} <br />
                 </p>
             </div>
         </div>
