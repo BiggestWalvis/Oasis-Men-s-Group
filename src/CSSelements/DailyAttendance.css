@@ -17,7 +17,7 @@
         height: 60vh;
         column-gap: 1em;
     }
-  }
+}
 
 .DatePicker--container{
     display: flex;

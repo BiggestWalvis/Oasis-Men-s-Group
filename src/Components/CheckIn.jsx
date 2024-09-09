@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { checkInCollection, auth, signInAnonymously, formattedDate } from '../firebase.config';
-import { getDocs, query, setDoc, where, doc } from 'firebase/firestore';
+import { checkInCollection, rosterCollection, auth, signInAnonymously, formattedDate, db } from '../firebase.config';
+import { getDocs, query, setDoc, where, doc, collection, addDoc } from 'firebase/firestore';
 import PhoneInput from 'react-phone-number-input/input';
 
 import 'react-phone-number-input/style.css'
@@ -56,6 +56,12 @@ export default function CheckIn() {
                                                         newGuy: "true",
                                                         recorded: false,
                                                         id: docRef.id
+                                    })
+                                    setDoc(doc(rosterCollection, docRef.id), {
+                                                        firstName: firstName,
+                                                        lastName: lastName,
+                                                        phone: phone,
+                                                        date: date,
                                     })
                                 }
                         })

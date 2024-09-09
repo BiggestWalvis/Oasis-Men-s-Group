@@ -1,6 +1,6 @@
-.UserBox--container{
+.RosterBox--container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 0px;
@@ -15,4 +15,8 @@
     padding: 0px;
     text-align: center;
 }
-
+.phone{
+    margin: 0.5em auto;
+    padding: 0px;
+    text-align: center;
+}
