@@ -1,6 +1,7 @@
 import React from "react";
 import Attendance from "./Attendance";
 import LeaderAccountRequests from "./LeaderAccountRequests";
+import Roster from "./Roster";
 import MyProfile from './MyProfile'
 import SubmitBugReports from "./SubmitBugReports";
 import NewVisitors from "./NewVisitors"
@@ -21,6 +22,9 @@ export default function DashboardBody(props) {
         },
         {
             content: <DailyAttendance />
+        },
+        {
+            content: <Roster />
         },
         {
             content: <MyProfile 

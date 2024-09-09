@@ -1,0 +1,23 @@
+@media screen and (min-width: 1200px) {
+    .roster--container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 60vh;
+        column-gap: 1em;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .Name--container{
+        margin: 0em;
+        padding: 0em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 60vh;
+        column-gap: 1em;
+    }
+}

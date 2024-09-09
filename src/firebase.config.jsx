@@ -36,6 +36,7 @@ const auth = getAuth(app)
 const db = getFirestore(app)
 export const checkInCollection = collection(db, "checkIn")
 export const usersCollection = collection(db, "users")
+export const rosterCollection = collection(db, "roster")
 
 //global variable for date
 const date = new Date()
