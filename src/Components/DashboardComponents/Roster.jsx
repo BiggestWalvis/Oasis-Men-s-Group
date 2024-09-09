@@ -1,6 +1,6 @@
-import { collection, getDocs, query } from "firebase/firestore";
+import { addDoc, collection, doc, getDocs, query, setDoc } from "firebase/firestore";
 import React, { useEffect } from "react";
-import { rosterCollection } from "../../firebase.config";
+import { checkInCollection, rosterCollection } from "../../firebase.config";
 import RosterBox from "./RosterBox";
 
 import "../../CSSelements/Roster.css"
@@ -11,6 +11,7 @@ export default function Roster(){
 
     const rosterQuery = query(rosterCollection)
 
+// gather roster infromation
     async function gatherData() {
         await getDocs(rosterQuery)
             .then((snapshot) => {
@@ -21,7 +22,7 @@ export default function Roster(){
                 setRoster(rosterList)
             })
     }
-
+//sort roster information by last name
     roster.sort(function (a,b) {
         if (a.lastName < b.lastName ){
             return -1
