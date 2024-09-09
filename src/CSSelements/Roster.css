@@ -2,16 +2,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.roster--title{
+    margin: 0.5em;
+}
+.rosterBox--container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
     column-gap: 1em;
 }
-
-
-
 @media screen and (min-width: 1200px) {
-    .roster--container{
+    .rosterBox--container{
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -40,7 +40,9 @@ export default function Roster(){
 
     return(
         <div className="roster--container">
-            {roster.map((tab,index) => (
+        <h2 className="roster--title">Roster List:</h2>
+           <div className="rosterBox--container">
+                {roster.map((tab,index) => (
                     <RosterBox 
                         key={index}
                         firstName={tab.firstName}
@@ -48,8 +50,10 @@ export default function Roster(){
                         phone={tab.phone}
                         id={tab.id}
                     />
-            ))}
+                ))}
+            </div> 
         </div>
+        
 
     )
 }
